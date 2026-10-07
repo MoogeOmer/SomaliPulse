@@ -1,1 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SomaliPulse | Stay Rooted. Stay Connected.</title>
+    <style>
+        :root {
+            --primary: #00A651; /* Vibrant Somali Green */
+            --dark: #121212;
+            --light: #F9F9F9;
+            --gray: #666;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            border-bottom: 1px solid #222;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--primary);
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 40px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.3s;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #008f44;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            border: 2px solid var(--light);
+            color: var(--light);
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">SomaliPulse 🇸🇴</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#culture">Culture</a>
+            <a href="#language">Language</a>
+            <a href="#community">Community</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Your Heartbeat. Your Heritage. Wherever You Are.</h1>
+        <p>The digital home for Somali youth abroad. Discover your roots, learn the culture, and connect with peers worldwide.</p>
+        <div class="btn-group">
+            <a href="#" class="btn btn-primary">Join WhatsApp Group</a>
+            <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+    </section>
+
+</body>
+</html>
 
