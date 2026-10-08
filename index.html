@@ -48,7 +48,7 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
         .wa-btn-sm {
             background-color: var(--primary);
@@ -58,35 +58,41 @@
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: bold;
+            transition: background 0.2s;
+        }
+        .wa-btn-sm:hover {
+            background-color: #008f44;
         }
         
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 60px 20px 40px 20px;
+            padding: 50px 20px 30px 20px;
             max-width: 800px;
             margin: 0 auto;
         }
         .hero h1 {
-            font-size: 2.4rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
             letter-spacing: -0.5px;
         }
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #aaa;
-            margin-bottom: 25px;
         }
 
         /* Category Navigation Bar */
         .cat-bar {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             overflow-x: auto;
-            padding: 10px 6%;
+            padding: 12px 6%;
             border-bottom: 1px solid var(--border);
             white-space: nowrap;
             background-color: #161616;
+            position: sticky;
+            top: 65px;
+            z-index: 999;
         }
         .cat-bar::-webkit-scrollbar {
             display: none;
@@ -99,6 +105,7 @@
             border-radius: 4px;
             font-size: 0.85rem;
             text-decoration: none;
+            cursor: pointer;
             transition: 0.2s;
         }
         .cat-pill:hover, .cat-pill.active {
@@ -114,7 +121,7 @@
             padding: 0 20px;
         }
         .section-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -184,10 +191,6 @@
             font-size: 0.85rem;
             margin-top: 50px;
         }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.9rem; }
-        }
     </style>
 </head>
 <body>
@@ -196,17 +199,18 @@
     <header>
         <a href="#" class="logo">Somali<span>Pulse</span> 🇸🇴</a>
         <div class="header-right">
+            <!-- Replace # with your actual WhatsApp Group link -->
             <a href="https://chat.whatsapp.com/YOUR-GROUP-LINK" target="_blank" class="wa-btn-sm">Join WhatsApp</a>
         </div>
     </header>
 
-    <!-- Categories Bar -->
+    <!-- Categories Bar (Clickable filters) -->
     <div class="cat-bar">
-        <a href="#" class="cat-pill active">All Stories</a>
-        <a href="#" class="cat-pill">Language Corner</a>
-        <a href="#" class="cat-pill">Culture & Heritage</a>
-        <a href="#" class="cat-pill">Diaspora Voices</a>
-        <a href="#" class="cat-pill">Community News</a>
+        <a href="#all" class="cat-pill active" onclick="filterPosts('all', event)">All Stories</a>
+        <a href="#language" class="cat-pill" onclick="filterPosts('language', event)">Language Corner</a>
+        <a href="#culture" class="cat-pill" onclick="filterPosts('culture', event)">Culture & Heritage</a>
+        <a href="#diaspora" class="cat-pill" onclick="filterPosts('diaspora', event)">Diaspora Voices</a>
+        <a href="#community" class="cat-pill" onclick="filterPosts('community', event)">Community News</a>
     </div>
 
     <!-- Hero Intro -->
@@ -219,32 +223,47 @@
     <div class="main-container">
         <h2 class="section-title">Latest Updates</h2>
         
-        <div class="news-grid">
-            <!-- Post Card 1 -->
-            <div class="news-card">
+        <div class="news-grid" id="news-grid">
+            
+            <!-- Post 1: Culture & Heritage -->
+            <div class="news-card" data-category="culture">
                 <div class="news-content">
                     <span class="badge">Culture & Heritage</span>
-                    <h3>Welcome to SomaliPulse!</h3>
-                    <p>Welcome to the official home of SomaliPulse. Stay tuned for language lessons, cultural spotlights, and community stories updated regularly.</p>
+                    <h3>The Art of Hospitality: Why "Soo Dhawoow" Means Everything</h3>
+                    <p>In Somali culture, hospitality isn't just being polite—it's a core value. Discover the deep roots behind nomadic greeting traditions and how we keep them alive abroad.</p>
                 </div>
                 <div class="news-footer">
-                    <span>By SomaliPulse Team</span>
+                    <span>Culture Desk</span>
                     <span>Oct 9, 2026</span>
                 </div>
             </div>
 
-            <!-- Post Card 2 (Placeholder for your next update) -->
-            <div class="news-card">
+            <!-- Post 2: Language Corner -->
+            <div class="news-card" data-category="language">
                 <div class="news-content">
                     <span class="badge">Language Corner</span>
-                    <h3>Word of the Week: Dhaqan</h3>
-                    <p>Explore what 'Dhaqan' truly means for the global diaspora, how to use it in daily conversation, and our weekly challenge.</p>
+                    <h3>Word of the Week: Dhaqan & Responsiveness</h3>
+                    <p>Breaking down what 'Dhaqan' means for second-generation youth, plus 3 quick Somali phrases you can use with your family this weekend.</p>
                 </div>
                 <div class="news-footer">
                     <span>Language Desk</span>
-                    <span>Coming Soon</span>
+                    <span>Oct 8, 2026</span>
                 </div>
             </div>
+
+            <!-- Post 3: Diaspora Voices -->
+            <div class="news-card" data-category="diaspora">
+                <div class="news-content">
+                    <span class="badge">Diaspora Voices</span>
+                    <h3>Balancing Two Worlds: Growing Up Somali Abroad</h3>
+                    <p>How young Somalis navigate school, life in foreign cities, and staying deeply connected to their identity without losing their footing.</p>
+                </div>
+                <div class="news-footer">
+                    <span>Community Member</span>
+                    <span>Oct 6, 2026</span>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -253,5 +272,25 @@
         <p>&copy; 2026 SomaliPulse. All Rights Reserved. Stay Rooted. Stay Connected.</p>
     </footer>
 
+    <!-- Simple JavaScript to make category filters work -->
+    <script>
+        function filterPosts(category, event) {
+            event.preventDefault();
+            
+            // Highlight active button
+            document.querySelectorAll('.cat-pill').forEach(pill => pill.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show/Hide cards based on category
+            const cards = document.querySelectorAll('.news-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
